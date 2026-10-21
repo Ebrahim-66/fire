@@ -1,27 +1,29 @@
-# FIRECO Website V2 — English / العربية
+# FIRECO Website
 
-Complete static upload package. Read **START-HERE.txt**.
-Place the contents at the root of the existing repository. Include **both**
-the **ar** and **clients** folders. No build step is required.
+Bilingual English and Arabic website for FIRECO Technical Services LLC. The site presents fire alarm and firefighting system design, supply, installation, maintenance, annual maintenance contracts, and Civil Defence certificate assistance across the UAE.
 
-## Admin portal
+## Build and preview
 
-After deployment, open `/admin/` and sign in with the GitHub account that has
-write access to `Ebrahim-66/fireco-web`. The admin edits `data/clients.json`
-and `data/settings.json`, then commits the update to `main`. Use **Clients and
-Project References** to add, edit, reorder or remove bilingual clients. Use
-**Company Profile PDF** to upload and select the current profile document.
-Vercel will publish the resulting GitHub commit through its existing project.
+Requirements: Node.js and pnpm (the repository pins pnpm in `package.json`).
 
-Eight main pages cover the homepage, fire alarm systems, firefighting systems
-and maintenance in English and Arabic. Six compatibility pages preserve older
-links and forward visitors to the relevant general service.
+```sh
+pnpm install --frozen-lockfile
+pnpm run build
+pnpm run preview
+```
 
-Company details and quality content, UAE coverage, client imagery and sectors,
-number animations, responsive layouts and the enquiry selector are updated
-in both languages. All 71 client/project references remain available.
+The production client is written to `dist/client`. The build also prepares the server and hosting metadata in `dist/`.
 
-The form prepares an email to info@firecots.com in the visitor's email app.
-It does not send through a server. Canonical URLs and search files target
-https://firecots.com/. The package does not deploy itself or connect a domain.
-See QA-NOTES.txt and SOURCES.md.
+## Website content
+
+- `src/` contains the responsive React website and English/Arabic content.
+- `public/assets/` and `public/clients/` contain site photography, the company logo, profile PDF, and client marks.
+- `data/clients.json` stores the 71 client and project references.
+- `admin/` contains the CMS interface and GitHub backend configuration for `Ebrahim-66/fire`.
+- `worker/` and `vercel.json` contain the hosting/security routing configuration.
+
+The enquiry form opens the visitor’s email application with a prepared message addressed to `info@firecots.com`; it does not send mail from a server.
+
+## Deployment
+
+Deploy the repository using the hosting provider’s project settings. Use `pnpm run build` as the build command and `dist/client` as the static output directory when the provider requests one. The repository does not contain hosting credentials or perform deployment automatically.
