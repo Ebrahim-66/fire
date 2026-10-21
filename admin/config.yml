@@ -1,10 +1,10 @@
 backend:
   name: github
-  repo: Ebrahim-66/fireco-web
+  repo: Ebrahim-66/fire
   branch: main
 
-site_url: https://fireco-web.vercel.app
-display_url: https://fireco-web.vercel.app
+site_url: https://firecots.com
+display_url: https://firecots.com
 logo_url: /fireco-logo.svg
 publish_mode: simple
 media_folder: uploads
